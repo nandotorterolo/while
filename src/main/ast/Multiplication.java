@@ -5,10 +5,10 @@ import java.util.*;
 /** Representación de multiplicaciones.
 */
 public class Multiplication extends AExp {
-	public final AExp left;
-	public final AExp right;
+	public final Exp left;
+	public final Exp right;
 
-	public Multiplication(AExp left, AExp right) {
+	public Multiplication(Exp left, Exp right) {
 		this.left = left;
 		this.right = right;
 	}

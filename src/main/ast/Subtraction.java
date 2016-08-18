@@ -5,10 +5,10 @@ import java.util.*;
 /** Representación de restas.
 */
 public class Subtraction extends AExp {
-	public final AExp left;
-	public final AExp right;
+	public final Exp left;
+	public final Exp right;
 
-	public Subtraction(AExp left, AExp right) {
+	public Subtraction(Exp left, Exp right) {
 		this.left = left;
 		this.right = right;
 	}

@@ -5,9 +5,9 @@ import java.util.*;
 /** Representación de las negaciones de expresiones booleanas.
 */
 public class Negation extends BExp {
-	public final BExp condition;
+	public final Exp condition;
 
-	public Negation(BExp condition) {
+	public Negation(Exp condition) {
 		this.condition = condition;
 	}
 

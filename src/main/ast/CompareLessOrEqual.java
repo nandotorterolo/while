@@ -5,10 +5,10 @@ import java.util.*;
 /** Representación de las comparaciones por menor o igual.
 */
 public class CompareLessOrEqual extends BExp {
-	public final AExp left;
-	public final AExp right;
+	public final Exp left;
+	public final Exp right;
 
-	public CompareLessOrEqual(AExp left, AExp right) {
+	public CompareLessOrEqual(Exp left, Exp right) {
 		this.left = left;
 		this.right = right;
 	}

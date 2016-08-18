@@ -5,7 +5,7 @@ import java.util.*;
 /** Categoría sintáctica de las expresiones booleanas de While, las 
 	construcciones del lenguaje que evalúan a un valor de verdad (booleano).
 */
-public abstract class BExp {
+public abstract class BExp extends Exp{
 
 	abstract public String unparse();
 

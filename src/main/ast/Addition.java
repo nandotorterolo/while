@@ -5,10 +5,10 @@ import java.util.*;
 /** Representación de sumas.
 */
 public class Addition extends AExp {
-	public final AExp left;
-	public final AExp right;
+	public final Exp left;
+	public final Exp right;
 
-	public Addition(AExp left, AExp right) {
+	public Addition(Exp left, Exp right) {
 		this.left = left;
 		this.right = right;
 	}

@@ -5,10 +5,10 @@ import java.util.*;
 /** Representación de conjunciones booleanas (AND).
 */
 public class Conjunction extends BExp {
-	public final BExp left;
-	public final BExp right;
+	public final Exp left;
+	public final Exp right;
 
-	public Conjunction(BExp left, BExp right) {
+	public Conjunction(Exp left, Exp right) {
 		this.left = left;
 		this.right = right;
 	}

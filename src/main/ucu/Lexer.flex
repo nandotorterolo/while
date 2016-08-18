@@ -38,8 +38,12 @@ import java.io.*;
 	}
 
 %}
+String =	\"([^\"\\\n]|\\[bntrf\"\\/]|\\u[0-9a-fA-F]{4})*\"
 
 %%
+
+{String}	{ return new Symbol(STR, yyline, yycolumn, yytext().substring(1,yytext().length()-1)); }
+
 "!"
 	{ return new Symbol(EXCLAMATION_MARK, yyline, yycolumn, yytext()); }
 "&&"

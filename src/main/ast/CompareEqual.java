@@ -5,10 +5,10 @@ import java.util.*;
 /** Representación de las comparaciones por igual.
 */
 public class CompareEqual extends BExp {
-	public final AExp left;
-	public final AExp right;
+	public final Exp left;
+	public final Exp right;
 
-	public CompareEqual(AExp left, AExp right) {
+	public CompareEqual(Exp left, Exp right) {
 		this.left = left;
 		this.right = right;
 	}

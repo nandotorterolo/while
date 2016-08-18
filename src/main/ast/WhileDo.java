@@ -5,10 +5,10 @@ import java.util.*;
 /** Representación de las iteraciones while-do.
 */
 public class WhileDo extends Stmt {
-	public final BExp condition;
+	public final Exp condition;
 	public final Stmt body;
 
-	public WhileDo(BExp condition, Stmt body) {
+	public WhileDo(Exp condition, Stmt body) {
 		this.condition = condition;
 		this.body = body;
 	}

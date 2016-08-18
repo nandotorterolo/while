@@ -29,6 +29,7 @@ public interface sym {
   public static final int FALSE = 8;
   public static final int error = 1;
   public static final int EXCLAMATION_MARK = 4;
+  public static final int STR = 25;
   public static final int LESS_THAN_OR_EQUAL = 18;
   public static final int RIGHT_CURLY_BRACKET = 16;
   public static final int LEFT_CURLY_BRACKET = 13;
@@ -58,7 +59,8 @@ public interface sym {
   "WHILE",
   "ELSE",
   "IF",
-  "DOUBLE_EQUALS_SIGN"
+  "DOUBLE_EQUALS_SIGN",
+  "STR"
   };
 }
 

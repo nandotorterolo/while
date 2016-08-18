@@ -5,7 +5,7 @@ import java.util.*;
 /** Categoría sintáctica de las expresiones aritméticas de While, las 
 	construcciones del lenguaje que evalúan a un número.
 */
-public abstract class AExp {
+public abstract class AExp extends Exp{
 
 	abstract public String unparse();
 
