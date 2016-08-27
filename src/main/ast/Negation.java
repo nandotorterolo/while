@@ -37,4 +37,14 @@ public class Negation extends BExp {
 		condition = BExp.generate(random, min-1, max-1);
 		return new Negation(condition);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		Object expression=condition.evaluate(state);
+		if (expression instanceof Boolean){
+			return !((Boolean) expression);
+		} else {
+			throw new IllegalStateException(this.unparse());
+		}
+	}
 }

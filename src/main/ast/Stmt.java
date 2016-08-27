@@ -1,5 +1,7 @@
 package ast;
 
+import org.junit.experimental.theories.internal.Assignments;
+
 import java.util.*;
 
 /** Categoría sintáctica de las sentencias (statements) de While, las 
@@ -8,7 +10,7 @@ import java.util.*;
 */
 public abstract class Stmt {
 
-	abstract public String unparse();
+	public abstract String unparse();
 
 	@Override public abstract String toString();
 
@@ -23,11 +25,13 @@ public abstract class Stmt {
 		switch (i) {
 		//Terminals
 		//Non terminals
-			case 0: return Assignment.generate(random, min-1, max-1);
+			case 0: return AssignmentStmt.generate(random, min-1, max-1);
 			case 1: return Sequence.generate(random, min-1, max-1);
 			case 2: return IfThenElse.generate(random, min-1, max-1);
 			case 3: return WhileDo.generate(random, min-1, max-1);
 			default: throw new Error("Unexpected error at Stmt.generate()!");
 		}
 	}
+
+	public abstract Object evaluate(State state);
 }

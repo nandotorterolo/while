@@ -42,4 +42,18 @@ public class Addition extends AExp {
 		right = AExp.generate(random, min-1, max-1);
 		return new Addition(left, right);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		Object left; Object right;
+		left =this.left.evaluate(state);
+		right =this.right.evaluate(state);
+		if (left instanceof Double && right instanceof Double){
+			return (Double) left + (Double) right;
+		} else if (left instanceof String && right instanceof String){
+			return (String) left + (String) right;
+		}else {
+			throw new IllegalStateException(this.unparse());
+		}
+	}
 }

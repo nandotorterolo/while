@@ -37,4 +37,9 @@ public class TruthValue extends BExp {
 		value = random.nextBoolean();
 		return new TruthValue(value);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		return value;
+	}
 }

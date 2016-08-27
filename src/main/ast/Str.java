@@ -36,6 +36,9 @@ public class Str extends Exp{
 		SecureRandom random1 = new SecureRandom();
 		return new Str(new BigInteger(130, random1).toString(32));
 	}
-	
 
+	@Override
+	public Object evaluate(State state) {
+		return value;
+	}
 }

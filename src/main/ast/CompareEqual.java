@@ -42,4 +42,9 @@ public class CompareEqual extends BExp {
 		right = AExp.generate(random, min-1, max-1);
 		return new CompareEqual(left, right);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		return left.equals(right);
+	}
 }

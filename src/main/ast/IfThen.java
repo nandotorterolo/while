@@ -42,4 +42,20 @@ public class IfThen extends Stmt {
 		thenBody = Stmt.generate(random, min-1, max-1);
 		return new IfThen(condition, thenBody);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		if (condition.evaluate(state) instanceof Boolean){
+			Boolean truthValue=(Boolean) condition.evaluate(state);
+			if (truthValue) {
+				return thenBody.evaluate(state);
+			}
+            else {
+				return null;
+			}
+		}
+		else {
+			throw new IllegalStateException(this.unparse());
+		}
+	}
 }

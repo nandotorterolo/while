@@ -42,4 +42,19 @@ public class WhileDo extends Stmt {
 		body = Stmt.generate(random, min-1, max-1);
 		return new WhileDo(condition, body);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		if (condition.evaluate(state) instanceof Boolean){
+			Boolean truthValue=(Boolean) condition.evaluate(state);
+			while (truthValue){
+				body.evaluate(state);
+				truthValue=(Boolean) condition.evaluate(state);
+			}
+			return state;
+		}
+		else{
+			throw new IllegalStateException(this.unparse());
+		}
+	}
 }

@@ -37,4 +37,12 @@ public class Variable extends AExp {
 		id = ""+"abcdefghijklmnopqrstuvwxyz".charAt(random.nextInt(26));
 		return new Variable(id);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		if (state.mapa.containsKey(id)) {
+			return state.mapa.get(id);
+		}
+		throw new IllegalStateException(this.unparse());
+	}
 }

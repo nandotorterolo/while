@@ -42,4 +42,10 @@ public class AssignmentStmt extends Stmt {
 		expression = AExp.generate(random, min-1, max-1);
 		return new AssignmentStmt(id, expression);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		state.mapa.put(id,expression.evaluate(state));
+		return state;
+	}
 }

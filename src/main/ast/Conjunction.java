@@ -42,4 +42,16 @@ public class Conjunction extends BExp {
 		right = BExp.generate(random, min-1, max-1);
 		return new Conjunction(left, right);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		Object left; Object right;
+		left =this.left.evaluate(state);
+		right =this.right.evaluate(state);
+		if (left instanceof Boolean && right instanceof Boolean){
+			return (Boolean) left && (Boolean) right;
+		} else {
+			throw new IllegalStateException(this.unparse());
+		}
+	}
 }

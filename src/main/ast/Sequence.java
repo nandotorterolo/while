@@ -44,4 +44,12 @@ public class Sequence extends Stmt {
 		}
 		return new Sequence(statements);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		for (int i=0; i<statements.length; i++){
+			statements[i].evaluate(state);
+		}
+		return state;
+	}
 }

@@ -42,4 +42,16 @@ public class Subtraction extends AExp {
 		right = AExp.generate(random, min-1, max-1);
 		return new Subtraction(left, right);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		Object left; Object right;
+		left =this.left.evaluate(state);
+		right =this.right.evaluate(state);
+		if (left instanceof Double && right instanceof Double){
+			return (Double) left - (Double) right;
+		} else {
+			throw new IllegalStateException(this.unparse());
+		}
+	}
 }

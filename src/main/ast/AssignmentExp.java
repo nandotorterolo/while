@@ -42,4 +42,11 @@ public class AssignmentExp extends Exp {
 		expression = AExp.generate(random, min-1, max-1);
 		return new AssignmentExp(id, expression);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		Object objeto = expression.evaluate(state);
+		state.mapa.put(id,objeto);
+		return objeto;
+	}
 }

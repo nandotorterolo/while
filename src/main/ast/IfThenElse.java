@@ -47,4 +47,19 @@ public class IfThenElse extends Stmt {
 		elseBody = Stmt.generate(random, min-1, max-1);
 		return new IfThenElse(condition, thenBody, elseBody);
 	}
+
+	@Override
+	public Object evaluate(State state) {
+		if (condition.evaluate(state) instanceof Boolean){
+			Boolean truthValue=(Boolean) condition.evaluate(state);
+			if (truthValue){
+				return thenBody.evaluate(state);
+			} else {
+				return elseBody.evaluate(state);
+			}
+		}
+		else {
+			throw new IllegalStateException(this.unparse());
+		}
+	}
 }
