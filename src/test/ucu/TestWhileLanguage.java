@@ -28,7 +28,7 @@ public class TestWhileLanguage extends TestCase {
 
     protected void loadData(){
         datosPruebas.put(1, "y=2;");
-        datosPruebas.put(2, "y=(-2);");  // Fail
+        datosPruebas.put(2, "y=0-2;");  // Fail
         datosPruebas.put(3, "if (1==1) then x=1; else x=2;");
         datosPruebas.put(4, "if (1==1) then x=1;");
         datosPruebas.put(5, "if (true) then x=1;");
@@ -40,7 +40,7 @@ public class TestWhileLanguage extends TestCase {
 
     public void testSingle() {
        try {
-            Integer numTest = 2;
+            Integer numTest = 9;
             Object obj = Parse.parse(datosPruebas.get(numTest));
             logger.log(Level.INFO,obj.toString());
             if (obj instanceof Stmt) {
@@ -52,21 +52,18 @@ public class TestWhileLanguage extends TestCase {
     }
 
     public void testAll() {
-
-        try {
-            datosPruebas.forEach((k,v) -> {
-                logger.log(Level.INFO, "test" + k + " : " + v);
+        datosPruebas.forEach((k,v) -> {
+            logger.log(Level.INFO, "test" + k + " : " + v);
+            try {
                 Object obj = Parse.parse(v);
                 logger.log(Level.INFO,obj.toString());
                 if (obj instanceof Stmt) {
                     logger.log(Level.INFO, ((Stmt)obj).evaluate(state).toString());
                 }
-            });
-        }catch (Exception e){
-            logger.log(Level.SEVERE, e.getMessage(), e.getCause());
-        }
+            }catch (Exception e){
+                logger.log(Level.SEVERE, e.getMessage(), e.getCause());
+            }
+        });
     }
-
-
 
 }
