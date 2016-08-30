@@ -82,6 +82,12 @@ String =	\"([^\"\\\n]|\\[bntrf\"\\/]|\\u[0-9a-fA-F]{4})*\"
 	{ return new Symbol(TRUE, yyline, yycolumn, yytext()); }
 "while"
 	{ return new Symbol(WHILE, yyline, yycolumn, yytext()); }
+"print"
+	{ return new Symbol(PRINT, yyline, yycolumn, yytext()); }
+"length"
+	{ return new Symbol(LENGTH, yyline, yycolumn, yytext()); }
+"defined"
+	{ return new Symbol(DEFINED, yyline, yycolumn, yytext()); }
 "{"
 	{ return new Symbol(LEFT_CURLY_BRACKET, yyline, yycolumn, yytext()); }
 "}"

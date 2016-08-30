@@ -15,4 +15,9 @@ public class State {
 
         return rest;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return ((State)obj).mapa.equals(mapa);
+    }
 }

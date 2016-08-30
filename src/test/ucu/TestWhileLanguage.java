@@ -32,15 +32,23 @@ public class TestWhileLanguage extends TestCase {
         datosPruebas.put(3, "if (1==1) then x=1; else x=2;");
         datosPruebas.put(4, "if (1==1) then x=1;");
         datosPruebas.put(5, "if (true) then x=1;");
-        datosPruebas.put(6, "if (true==false) then x=1;");
+        datosPruebas.put(6, "{if (true==false) then x=1; y=1;}");
         datosPruebas.put(7, "hello = \"hello worl\";");
         datosPruebas.put(8, "if (x=1) + \"hello worl\" then a=true;");
-        datosPruebas.put(9, "x=i=1;"); // Fail
+        datosPruebas.put(9, "x=i=1;");
+        datosPruebas.put(10, "if (true) then {x=1; y=1;}");
+        datosPruebas.put(11, "if (true) then {x=1; y=1;}");
+        datosPruebas.put(12, "print(1+2);");
+        datosPruebas.put(13, "{y=1; print(y);}");
+        datosPruebas.put(14, "{y=\"sadfsa\"; print(length(y));}");
+        datosPruebas.put(15, "{y=\"6\"; length(y);}"); // fail
+        datosPruebas.put(16, "{y=6; print(defined(y));}");
+        datosPruebas.put(17, "{y=defined(y); print(y); print(defined(y));}");
     }
 
     public void testSingle() {
        try {
-            Integer numTest = 9;
+            Integer numTest = 17;
             Object obj = Parse.parse(datosPruebas.get(numTest));
             logger.log(Level.INFO,obj.toString());
             if (obj instanceof Stmt) {

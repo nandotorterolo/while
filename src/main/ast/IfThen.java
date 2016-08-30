@@ -51,7 +51,7 @@ public class IfThen extends Stmt {
 				return thenBody.evaluate(state);
 			}
             else {
-				return null;
+				return state;
 			}
 		}
 		else {
