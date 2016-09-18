@@ -52,4 +52,9 @@ public class Sequence extends Stmt {
 		}
 		return state;
 	}
+
+	@Override
+	public Checkstate check(Checkstate checkstate) {
+		return checkstate;
+	}
 }

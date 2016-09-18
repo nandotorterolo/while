@@ -49,4 +49,15 @@ public class AssignmentExp extends Exp {
 		state.mapa.put(id,objeto);
 		return objeto;
 	}
+
+	@Override // a = 3 + (x=2)
+	String check(Checkstate checkState) {
+		String tipo = checkState.getTypeOf(id);
+		if (tipo == null){
+			checkState.errores.add("Variable no definida");
+			return  "UNDEF";
+		} else {
+			return tipo;
+		}
+	}
 }

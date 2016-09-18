@@ -47,4 +47,19 @@ public class CompareEqual extends BExp {
 	public Object evaluate(State state) {
 		return left.equals(right);
 	}
+
+	@Override
+	String check(Checkstate checkState) {
+		String tLeft = left.check(checkState);
+		String tRight = right.check(checkState);
+		if (tLeft.equals(tRight) ) // && (tLeft.equals("TruthValue") || tLeft.equals("Numeral"))
+		{
+			return tLeft;
+		}
+		else
+		{
+			checkState.errores.add("Error al comparar, los tipos deben ser TruthValue" + this.toString());
+			return "TruthValue";
+		}
+	}
 }

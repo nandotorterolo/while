@@ -57,4 +57,9 @@ public class WhileDo extends Stmt {
 			throw new IllegalStateException(this.unparse());
 		}
 	}
+
+	@Override
+	public Checkstate check(Checkstate checkstate) {
+		return checkstate;
+	}
 }

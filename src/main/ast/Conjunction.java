@@ -54,4 +54,20 @@ public class Conjunction extends BExp {
 			throw new IllegalStateException(this.unparse());
 		}
 	}
+
+	@Override
+	String check(Checkstate checkState) {
+		String tLeft = left.check(checkState);
+		String tRight = right.check(checkState);
+		if (tLeft.equals(tRight) && tLeft.equals("TruthValue"))
+		{
+			return tLeft;
+		}
+		else
+		{
+			checkState.errores.add("Error al comparar, los tipos deben ser TruthValue" + this.toString());
+			return "Numeral";
+		}
+	}
+
 }

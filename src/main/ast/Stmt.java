@@ -34,4 +34,6 @@ public abstract class Stmt {
 	}
 
 	public abstract Object evaluate(State state);
+
+	public abstract Checkstate check(Checkstate checkstate);
 }

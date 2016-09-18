@@ -41,4 +41,9 @@ public class Str extends Exp{
 	public Object evaluate(State state) {
 		return value;
 	}
+
+	@Override
+	String check(Checkstate checkState) {
+		return "Str";
+	}
 }

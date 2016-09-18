@@ -56,4 +56,19 @@ public class Addition extends AExp {
 			throw new IllegalStateException(this.unparse());
 		}
 	}
+
+	@Override
+	String check(Checkstate checkState) {
+		String tLeft = left.check(checkState);
+		String tRight = right.check(checkState);
+		if (tLeft.equals(tRight) && tLeft.equals("Numeral"))
+		{
+			return tLeft;
+		}
+		else
+		{
+			checkState.errores.add("Error al sumar, los tipos deben ser numerales " + this.toString());
+			return "Numeral";
+		}
+	}
 }

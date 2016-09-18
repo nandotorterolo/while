@@ -47,4 +47,18 @@ public class Negation extends BExp {
 			throw new IllegalStateException(this.unparse());
 		}
 	}
+
+	@Override
+	String check(Checkstate checkState) {
+		String cond= condition.check(checkState);
+		if (cond.equals("TruthValue"))
+		{
+			return "TruthValue";
+		}
+		else
+		{
+			checkState.errores.add("Error al negar, los tipos deben ser TruthValue" + this.toString());
+			return "TruthValue";
+		}
+	}
 }

@@ -42,4 +42,9 @@ public class TruthValue extends BExp {
 	public Object evaluate(State state) {
 		return value;
 	}
+
+	@Override
+	String check(Checkstate checkState) {
+		return "TruthValue";
+	}
 }

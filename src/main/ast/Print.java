@@ -42,4 +42,10 @@ public class Print extends Stmt {
 		System.out.println(expression.evaluate(state));
 		return state;
 	}
+
+	@Override
+	public Checkstate check(Checkstate checkstate) {
+		expression.check(checkstate);
+        return checkstate;
+	}
 }

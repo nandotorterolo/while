@@ -74,6 +74,7 @@ public class TestWhileLanguage extends TestCase {
         datosPruebas2.put(5, Pair.with("{y=defined(y); print(y); print(defined(y));}", createMap(Pair.with("y",false))));
         datosPruebas2.put(6, Pair.with("{i=0; while (i <= 3) do i=i+1;}", createMap(Pair.with("i",4.0))));
         datosPruebas2.put(7, Pair.with("{i=true; while i do {print(i); i=false;} print(i);}", createMap(Pair.with("i",false))));
+        datosPruebas2.put(8, Pair.with("{i=1*8; j=i*8;}", createMap(Pair.with("i",8.0),Pair.with("j",64.0))));
     }
 
     public void testData1() {
@@ -106,7 +107,7 @@ public class TestWhileLanguage extends TestCase {
 
     public void testData2() {
         try {
-            Integer numTest = 7;
+            Integer numTest = 8;
             Pair<String,Map<String,Object>> pair = datosPruebas2.get(numTest);
             Object obj = Parse.parse(pair.getValue0());
             logger.log(Level.INFO,obj.toString());

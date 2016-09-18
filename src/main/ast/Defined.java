@@ -34,4 +34,14 @@ public class Defined extends Exp {
 	public Object evaluate(State state) {
 		return state.mapa.containsKey(id);
 	}
+
+	String check(Checkstate checkState) {
+		String tipo = checkState.getTypeOf(id);
+		if (tipo == null){
+			checkState.errores.add("Variable no definida");
+			return  "TruthValue";
+		} else {
+			return tipo;
+		}
+	}
 }

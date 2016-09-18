@@ -58,4 +58,9 @@ public class IfThen extends Stmt {
 			throw new IllegalStateException(this.unparse());
 		}
 	}
+
+	@Override
+	public Checkstate check(Checkstate checkstate) {
+		return checkstate;
+	}
 }

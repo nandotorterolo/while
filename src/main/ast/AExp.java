@@ -26,7 +26,7 @@ public abstract class AExp extends Exp{
 			case 1: return Variable.generate(random, min-1, max-1);
 		//Non terminals
 			case 2: return Multiplication.generate(random, min-1, max-1);
-			case 3: return Division.generate(random, min-1, max-1);
+//			case 3: return Division.generate(random, min-1, max-1);
 			case 4: return Addition.generate(random, min-1, max-1);
 			case 5: return Subtraction.generate(random, min-1, max-1);
 			default: throw new Error("Unexpected error at AExp.generate()!");

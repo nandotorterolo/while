@@ -42,4 +42,9 @@ public class Numeral extends AExp {
 	public Object evaluate(State state) {
 		return number;
 	}
+
+	@Override
+	String check(Checkstate checkState) {
+		return "Numeral";
+	}
 }

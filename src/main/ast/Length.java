@@ -44,4 +44,12 @@ public class Length extends Exp {
 		else
 		 	throw  new IllegalStateException("Evaluate String");
 	}
+
+	String check(Checkstate checkState) {
+		String tipo = expression.check(checkState);
+		if (!tipo.equals("String"))
+            checkState.errores.add("Error" + expression.toString());
+        return "Numeral";
+
+	}
 }

@@ -45,4 +45,15 @@ public class Variable extends AExp {
 		}
 		throw new IllegalStateException(this.unparse());
 	}
+
+	@Override /// TODO que es UNDEF???
+	String check(Checkstate checkState) {
+		String tipo = checkState.getTypeOf(id);
+		if (tipo == null){
+			checkState.errores.add("Variable no definida");
+			return  "Numeral";
+		} else {
+			return tipo;
+		}
+	}
 }

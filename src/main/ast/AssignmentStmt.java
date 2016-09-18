@@ -48,4 +48,15 @@ public class AssignmentStmt extends Stmt {
 		state.mapa.put(id,expression.evaluate(state));
 		return state;
 	}
+
+	@Override
+    // ID:$1 EQUALS_SIGN exp:$3 SEMICOLON
+	public Checkstate check(Checkstate checkstate) {
+		// y=3
+        // y, Int, Def, Si una variable esta definida, y la asigno de nuevo, dejo un warnig o no
+        String tipo = expression.check(checkstate);
+        checkstate.defineVariable(id,tipo);
+
+        return checkstate;
+	}
 }
